@@ -1,10 +1,15 @@
+import LoginForm from "@/components/auth/LoginForm";
 import SignInForm from "@/components/auth/SignIn";
 
 export default function Login() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      {/* <SignInForm /> */}
+    <div className="space-y-5">
+      <h1>Sign In Page</h1>
+
+      <div className="space-y-5">
+        <LoginForm />
+        <SignInForm />
+      </div>
     </div>
   );
 }
