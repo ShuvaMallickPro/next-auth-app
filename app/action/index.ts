@@ -13,7 +13,6 @@ export async function signOutAction() {
 export async function logInAction(formData: FormData) {
   if (!formData) return null;
   console.log("Form Data =>>", formData);
-  console.log(formData.get("email"), formData.get("password"));
 
   try {
     const response = await signIn("credentials", {
@@ -22,9 +21,10 @@ export async function logInAction(formData: FormData) {
       redirect: false,
     });
 
+    console.log("Response =>", response);
+
     return response;
   } catch (error) {
-    throw new Error("Invalid email or password");
-    throw error;
+    throw new Error("Invalid email or password", { error: error });
   }
 }
